@@ -9,6 +9,15 @@ import java.util.Optional;
 @Repository
 public interface ClientRepository extends MongoRepository<Client,String> {
 
-    Client findByEmail(String email);
 
+
+    Optional<Client> findByUsername(String username);
+
+    Boolean existsByUsername(String username);
+
+    Boolean existsByEmail(String email);
+
+    Client findBymatriculeSociale(String matriculeClient);
 }
+
+

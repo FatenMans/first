@@ -60,6 +60,8 @@ public class Appareil {
     public int getQuantiteEnStock() {
         return quantiteEnStock;
     }
+    @DBRef
+    private  Vehicule vehicule;
 
     public void setQuantiteEnStock(int quantiteEnStock) {
         this.quantiteEnStock = quantiteEnStock;
