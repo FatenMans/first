@@ -81,15 +81,7 @@ public class VehiculeController {
     }
 
 
-    @PostMapping("/{idVehicule}/ajouter-appareil")
-    public ResponseEntity<Vehicule> ajouterAppareil(@PathVariable String idVehicule, @RequestBody Appareil appareil) {
-        Vehicule vehicule = vehiculeService.ajouterAppareil(idVehicule, appareil);
-        if (vehicule != null) {
-            return new ResponseEntity<>(vehicule, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+
 
 
 }

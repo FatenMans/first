@@ -49,14 +49,6 @@ public class VehiculeService {
         vehiculeRepository.save(vehicule);
     }
 
-    public Vehicule ajouterAppareil(String idVehicule, Appareil appareil) {
-        Vehicule vehicule = vehiculeRepository.findById(idVehicule).orElse(null);
-        if (vehicule != null) {
-            vehicule.getAppareils().add(appareil);
-            vehiculeRepository.save(vehicule);
-        }
-        return vehicule;
-    }
 
 
 

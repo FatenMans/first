@@ -6,6 +6,7 @@ import com.example.demo.Repository.ClientRepository;
 import com.example.demo.Repository.FactureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;
@@ -18,27 +19,27 @@ public class FactureService {
 
     private  FactureRepository factureRepository;
 
+    public  String creerFacture(Facture facture , String matriculeClient ) {
 
-
-    public void creerFacture(String matriculeClient, String periode, double montant, int nbAppareils, String etatFacture) {
-        // Récupérer le client en fonction du matricule
-        Client client = clientRepository.findBymatriculeSociale(matriculeClient);
-
-        if (client != null) {
-            // Créer la facture et associer le client
-            Facture facture = new Facture(periode, montant, nbAppareils, etatFacture);
-            facture.setClient(client);
-
-            // Enregistrer la facture dans la base de données
-            factureRepository.save(facture);
-
-        }
+         Client client =clientRepository.findBymatriculeSociale(matriculeClient);
+         if (client != null)
+         {
+             facture.setClient(client);
+             factureRepository.save(facture);
+             return "facture cree avec success";
+         }
+        return "client not found";
     }
+
+
 
     // Méthode pour rechercher des factures par matricule client
     public List<Facture> rechercherFacturesParMatriculeClient(String matriculeClient) {
-        // Utilisez le FactureRepository pour rechercher des factures en fonction du matricule client
-        return factureRepository.findByClientMatriculeSociale(matriculeClient);
+        Client client = clientRepository.findBymatriculeSociale(matriculeClient);
+        return  factureRepository.findByClientId(client.getId());
+
     }
+
+
 }
 

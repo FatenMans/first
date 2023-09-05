@@ -11,5 +11,6 @@ public interface FactureRepository extends MongoRepository<Facture,String> {
 
 
         List<Facture> findByClientMatriculeSociale(String matriculeClient);
+        List<Facture> findByClientId(String id);
 
 }

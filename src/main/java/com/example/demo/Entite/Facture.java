@@ -14,8 +14,10 @@ public class Facture {
     private String id;
     private String periode;
     private double montant;
-    private int nbAppareils;
+
     private String etatFacture;
+
+    private  int numberOfDevices;
 
     @DBRef
     private Client client; // Lien vers le client associé à cette facture
@@ -25,10 +27,10 @@ public class Facture {
     public Facture() {
     }
 
-    public Facture(String periode, double montant, int nbAppareils, String etatFacture) {
+    public Facture(String periode, double montant,  String etatFacture) {
         this.periode = periode;
         this.montant = montant;
-        this.nbAppareils = nbAppareils;
+
         this.etatFacture = etatFacture;
     }
 
@@ -56,13 +58,7 @@ public class Facture {
         this.montant = montant;
     }
 
-    public int getNbAppareils() {
-        return nbAppareils;
-    }
 
-    public void setNbAppareils(int nbAppareils) {
-        this.nbAppareils = nbAppareils;
-    }
 
     public String getEtatFacture() {
         return etatFacture;

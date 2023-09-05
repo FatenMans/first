@@ -15,7 +15,16 @@ public class Appareil {
     private boolean archived;
     private int quantiteEnStock; // Nouvelle propriété
 
+    private double prixUnitaire;
 
+
+    public double getPrixUnitaire() {
+        return prixUnitaire;
+    }
+
+    public void setPrixUnitaire(double prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+    }
 
     public String getId() {
         return id;
@@ -65,6 +74,9 @@ public class Appareil {
 
     public void setQuantiteEnStock(int quantiteEnStock) {
         this.quantiteEnStock = quantiteEnStock;
+    }
+    public double calculerMontantTotal(int quantiteAchetee) {
+        return prixUnitaire * quantiteAchetee;
     }
 
 

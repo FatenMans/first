@@ -120,14 +120,14 @@ public class Vehicule {
     }
 
     @DBRef
-    private List<Appareil> appareils=new ArrayList<>();
+    private  Appareil appareil;
 
-    public List<Appareil> getAppareils() {
-        return appareils;
+    public Appareil getAppareil() {
+        return appareil;
     }
 
-    public void setAppareils(List<Appareil> appareils) {
-        this.appareils = appareils;
+    public void setAppareil(Appareil appareil) {
+        this.appareil = appareil;
     }
 }
 
